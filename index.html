@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susana Duque Rodríguez - Mi Mundo Personal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #87CEEB, #E6F3FF);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4682B4, #1E90FF);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: white;
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #FF6347;
+        }
+
+        .section h2 {
+            color: #4682B4;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #87CEEB;
+            padding-bottom: 10px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #F0F8FF;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .info-table th, .info-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .info-table th {
+            background: #4682B4;
+            color: white;
+            font-weight: bold;
+        }
+
+        .info-table tr:hover {
+            background: #E6F3FF;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .skill-category {
+            background: #F0F8FF;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #FF6347;
+        }
+
+        .skill-category h3 {
+            color: #4682B4;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            background: #87CEEB;
+            margin: 8px 0;
+            padding: 10px 15px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+
+        ul li:hover {
+            transform: translateX(5px);
+            background: #4682B4;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        ol li {
+            background: #FFF8DC;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid #FF6347;
+        }
+
+        .pets-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .pet-card {
+            background: linear-gradient(135deg, #FFE4E1, #FFF0F5);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            border: 2px solid #FF6347;
+        }
+
+        .pet-card h4 {
+            color: #4682B4;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .form-section {
+            background: linear-gradient(135deg, #F0F8FF, #E6F3FF);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #4682B4;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #4682B4;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #87CEEB;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #4682B4;
+            box-shadow: 0 0 10px rgba(70, 130, 180, 0.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #FF6347, #FF4500);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 99, 71, 0.4);
+        }
+
+        .health-info {
+            background: linear-gradient(135deg, #FFF8DC, #FFFACD);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #DAA520;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #87CEEB, #ADD8E6);
+            padding: 20px;
+            border-radius: 10px;
+            color: #000080;
+            font-weight: 500;
+            margin: 15px 0;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #87CEEB, #B0E0E6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            border: 2px dashed #4682B4;
+        }
+
+        footer {
+            background: #2C3E50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pets-section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌟 Susana Duque Rodríguez 🌟</h1>
+            <p>Técnica en Cocina Internacional | Estudiante de Programación | Amante de la Vida</p>
+        </header>
+
+        <section class="section">
+            <h2>🍳 Sobre Mí</h2>
+            <p>¡Hola! Soy Susana, una joven de 23 años apasionada por la gastronomía y la tecnología. Mi vida es una mezcla fascinante entre el arte culinario, el mundo digital y el desarrollo de habilidades únicas que me han fortalecido tanto física como mentalmente. Como Técnica en Cocina Internacional, he desarrollado habilidades extraordinarias en la preparación de platos diversos y postres deliciosos que despiertan todos los sentidos.</p>
+            
+            <p>Actualmente estoy expandiendo mis horizontes profesionales estudiando programación, lo que me permite combinar mi creatividad culinaria con la lógica del desarrollo de software. Además, he cultivado habilidades especializadas en primeros auxilios, defensa personal, tiro con arma de fuego y arquería, que han fortalecido mi confianza y capacidad de respuesta ante diferentes situaciones de la vida.</p>
+
+            <div class="highlight">
+                <strong>Mi filosofía de vida:</strong> Aprender algo nuevo cada día, desarrollar habilidades que me fortalezcan y me preparen para cualquier desafío, disfrutar de los pequeños momentos y nunca dejar de explorar nuevas culturas y sabores del mundo. La preparación y el conocimiento son las mejores herramientas para enfrentar la vida con confianza.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📋 Información Personal</h2>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Información</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Nombre Completo</strong></td>
+                        <td>Susana Duque Rodríguez</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Edad</strong></td>
+                        <td>23 años</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Estado Civil</strong></td>
+                        <td>Soltera</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hijos</strong></td>
+                        <td>Ninguno</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Profesión</strong></td>
+                        <td>Técnica en Cocina Internacional</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Estudios Actuales</strong></td>
+                        <td>Curso de Programación</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Colores Favoritos</strong></td>
+                        <td>Azul claro, Negro, Naranja</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>🏥 Información de Salud</h2>
+            <div class="health-info">
+                <p>Como parte de mi compromiso con la transparencia y el autocuidado, manejo algunas condiciones de salud que requieren atención médica regular. Estas experiencias me han enseñado la importancia de la perseverancia, el autocuidado y mantener una actitud positiva ante los desafíos.</p>
+                
+                <h3>Condiciones Médicas:</h3>
+                <ol>
+                    <li><strong>Lupus Eritematoso Sistémico (LES):</strong> Una condición autoinmune que manejo con tratamiento médico especializado y cambios en el estilo de vida.</li>
+                    <li><strong>Hipertensión:</strong> Controlada mediante medicación y hábitos saludables como ejercicio regular y alimentación balanceada.</li>
+                    <li><strong>Osteoporosis:</strong> Trabajo en fortalecer mis huesos a través de ejercicio específico y suplementación nutricional.</li>
+                    <li><strong>Nefritis Lúpica:</strong> Requiere seguimiento nefrológico constante y cuidados especiales en mi alimentación.</li>
+                </ol>
+                
+                <p><strong>Enfoque positivo:</strong> Estas condiciones no me definen, sino que me han hecho más fuerte y consciente de la importancia de cuidar mi cuerpo y mente. Asisto regularmente a citas médicas y mantengo un estilo de vida activo adaptado a mis necesidades.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎯 Mis Pasiones y Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🍴 Gastronomía</h3>
+                    <ul>
+                        <li>Cocina Internacional</li>
+                        <li>Preparación de Postres</li>
+                        <li>Decoración en Repostería</li>
+                        <li>Técnicas Culinarias Avanzadas</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🎵 Música</h3>
+                    <ul>
+                        <li>Piano</li>
+                        <li>Violín</li>
+                        <li>Batería</li>
+                        <li>Apreciación Musical</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🏃‍♀️ Deportes y Actividades</h3>
+                    <ul>
+                        <li>Natación</li>
+                        <li>Boxeo</li>
+                        <li>Caminatas</li>
+                        <li>Ejercicio Adaptado</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🎯 Habilidades Especializadas</h3>
+                    <ul>
+                        <li>Primeros Auxilios</li>
+                        <li>Tiro con Arma de Fuego</li>
+                        <li>Defensa Personal</li>
+                        <li>Arquería</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>📚 Intelectuales</h3>
+                    <ul>
+                        <li>Lectura Variada</li>
+                        <li>Escritura</li>
+                        <li>Programación</li>
+                        <li>Estudio Cultural</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🛡️ Habilidades de Preparación y Seguridad</h2>
+            <div class="image-placeholder">
+                🎯 Imagen: Equipos de arquería y entrenamiento
+            </div>
+            <p>Una parte importante de mi desarrollo personal ha sido cultivar habilidades que me preparan para diferentes situaciones de la vida. Estas disciplinas no solo me han fortalecido físicamente, sino que también han desarrollado mi concentración, disciplina y confianza personal.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🚑 Primeros Auxilios</h3>
+                    <p>Capacitada para responder en emergencias médicas, esta habilidad me proporciona la confianza de poder asistir a otros cuando más lo necesitan. Es especialmente valiosa considerando mi experiencia personal con temas de salud.</p>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🥊 Defensa Personal</h3>
+                    <p>Entrenamiento que me ha dado seguridad y fortaleza física. Complementa perfectamente mis rutinas de boxeo y me ayuda a mantenerme activa de manera segura y controlada.</p>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🎯 Tiro con Arma de Fuego</h3>
+                    <p>Disciplina que requiere concentración extrema, control respiratorio y precisión. Me ha enseñado la importancia de la responsabilidad, la seguridad y el respeto por las herramientas.</p>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🏹 Arquería</h3>
+                    <p>Un arte ancestral que combina fuerza, precisión y paciencia. Esta práctica me conecta con la historia y me proporciona una forma de meditación activa que complementa mi bienestar general.</p>
+                </div>
+            </div>
+            
+            <p>Estas habilidades reflejan mi creencia de que el conocimiento y la preparación son fundamentales para vivir con confianza y ayudar a otros cuando sea necesario. Cada una requiere disciplina, práctica constante y un profundo respeto por la responsabilidad que conllevan.</p>
+        </section>
+            <div class="image-placeholder">
+                🌏 Imagen: Mapa del mundo con destinos soñados
+            </div>
+            <p>Tengo una fascinación genuina por aprender sobre la cultura de todos los países del mundo. Esta pasión se refleja en mi cocina, donde experimento con sabores internacionales, y en mi tiempo libre, donde me sumerjo en documentales, libros y contenido audiovisual de diferentes culturas.</p>
+            
+            <p>El anime ha sido una ventana maravillosa hacia la cultura japonesa, y me ha inspirado a explorar no solo su gastronomía, sino también sus tradiciones, filosofías y forma de vida. Mi amor por viajar me impulsa a planear aventuras futuras donde pueda experimentar de primera mano la diversidad cultural del mundo.</p>
+        </section>
+
+        <section class="section">
+            <h2>🌍 Mis Intereses Culturales</h2>
+            <div class="image-placeholder">
+                🐱🐶 Imagen: Mis adorables mascotas juntas
+            </div>
+            <p>Mis mascotas son una parte fundamental de mi vida diaria. Cada una tiene su personalidad única y me acompaña en diferentes aventuras:</p>
+            
+            <div class="pets-section">
+                <div class="pet-card">
+                    <h4>🐱 Yuuka</h4>
+                    <p>Mi compañera felina, siempre curiosa y cariñosa. Le encanta observar mientras cocino.</p>
+                </div>
+                <div class="pet-card">
+                    <h4>🐾 Neko</h4>
+                    <p>Juguetón y lleno de energía, es mi compañero perfecto para momentos de relajación.</p>
+                </div>
+                <div class="pet-card">
+                    <h4>🌙 Yoru</h4>
+                    <p>Tranquilo y sabio, me acompaña en mis sesiones de lectura y estudio.</p>
+                </div>
+            </div>
+            <p>Salir con ellos es una de mis actividades favoritas. Ya sea para caminar por el parque o simplemente disfrutar del aire libre, ellos hacen que cada momento sea especial y lleno de alegría.</p>
+        </section>
+
+        <section class="section">
+            <h2>🐾 Mis Compañeros de Vida</h2>
+            <div class="image-placeholder">
+                🌊 Imagen: Hermosa playa al atardecer
+            </div>
+            <p>La playa es mi refugio perfecto. El sonido de las olas, la brisa marina y la inmensidad del océano me proporcionan la paz y inspiración que necesito. Es el lugar donde puedo desconectar del estrés diario, reflexionar sobre mis proyectos culinarios y simplemente ser yo misma.</p>
+            
+            <p>También disfruto mucho de la ropa de invierno, hay algo especial en la comodidad y el estilo de los abrigos, bufandas y botas que me hace sentir elegante y cómoda al mismo tiempo.</p>
+        </section>
+
+        <section class="section">
+            <h2>🏖️ Lugares que Amo</h2>
+            <div class="form-section">
+                <h3>¿Te gustaría conectar conmigo?</h3>
+                <p>Si compartes alguna de mis pasiones, tienes preguntas sobre cocina internacional, programación, o simplemente quieres charlar sobre cultura, anime o mascotas, ¡me encantaría escucharte!</p>
+                
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="nombre">Tu Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="intereses">¿Qué intereses compartimos? (Selecciona múltiples opciones):</label>
+                        <select id="intereses" name="intereses[]" multiple size="10">
+                            <option value="gastronomia">Gastronomía y Cocina</option>
+                            <option value="reposteria">Repostería y Decoración</option>
+                            <option value="programacion">Programación y Tecnología</option>
+                            <option value="musica">Música e Instrumentos</option>
+                            <option value="deportes">Deportes y Fitness</option>
+                            <option value="defensa_personal">Defensa Personal y Artes Marciales</option>
+                            <option value="tiro_arqueria">Tiro y Arquería</option>
+                            <option value="primeros_auxilios">Primeros Auxilios y Emergencias</option>
+                            <option value="anime">Anime y Cultura Japonesa</option>
+                            <option value="viajes">Viajes y Culturas</option>
+                            <option value="mascotas">Mascotas y Animales</option>
+                            <option value="lectura">Lectura y Escritura</option>
+                            <option value="salud">Temas de Salud y Bienestar</option>
+                        </select>
+                        <small>Mantén presionado Ctrl (o Cmd en Mac) para seleccionar múltiples opciones</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tema_favorito">¿Cuál es tu tema favorito para conversar?</label>
+                        <select id="tema_favorito" name="tema_favorito" required>
+                            <option value="">Selecciona un tema...</option>
+                            <option value="recetas">Intercambio de Recetas</option>
+                            <option value="programacion">Consejos de Programación</option>
+                            <option value="cultural">Experiencias Culturales</option>
+                            <option value="musica">Música y Instrumentos</option>
+                            <option value="anime">Recomendaciones de Anime</option>
+                            <option value="viajes">Planes de Viajes</option>
+                            <option value="mascotas">Historias de Mascotas</option>
+                            <option value="defensa">Defensa Personal y Disciplinas</option>
+                            <option value="tiro_arqueria">Tiro y Arquería</option>
+                            <option value="primeros_auxilios">Primeros Auxilios</option>
+                            <option value="salud">Experiencias de Salud</option>
+                            <option value="otro">Otro tema</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Tu Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntame sobre ti, comparte una receta, pregúntame algo, o simplemente salúdame..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ciudad">¿De qué ciudad eres?</label>
+                        <input type="text" id="ciudad" name="ciudad" placeholder="Tu ciudad y país">
+                    </div>
+
+                    <button type="submit" class="submit-btn">🚀 Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <h3>✨ Gracias por Conocer Mi Historia ✨</h3>
+            <p>La vida es una hermosa combinación de desafíos y oportunidades. Cada día es una nueva receta por crear, una nueva línea de código por escribir, y una nueva aventura por vivir.</p>
+            <p><strong>Susana Duque Rodríguez</strong> - Cocinando sueños y programando el futuro 💙🧡🖤</p>
+        </footer>
+    </div>
+
+    <script>
+        // Agregar interactividad básica
+        document.querySelector('.submit-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Me encantaría conectar contigo. 😊');
+        });
+
+        // Efecto hover para las tarjetas de mascotas
+        document.querySelectorAll('.pet-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Animación suave para los elementos de la lista
+        window.addEventListener('load', function() {
+            const listItems = document.querySelectorAll('ul li');
+            listItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(-20px)';
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }, 100);
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
